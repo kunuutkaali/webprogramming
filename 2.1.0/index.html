@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+        <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+        <style>
+            button {
+                margin-right: 1rem;
+            }
+            table, td, th {
+                border: 1px solid #080;
+            }
+            #app {
+                color: darkgreen;
+            }
+            #app div {
+                margin: 1rem 0;
+            }
+            .fav {
+                background: #080;
+                color: #fff;
+            }
+
+        </style>
+        <title>Vue 3 Widgets</title>
+    </head>
+
+    <body>
+        <main id='app'>                  <!-- managed by vue app -->
+            <h1 id='title'>{{ pageTitle }}</h1>
+            <hr/>
+            <section>
+                <h2>Books Section</h2>
+                <div>
+                    <a v-bind:href='url'>Your Friend in Need</a>    <!-- vue data binding -->
+                </div>
+                <div>
+                    <a :href='url1'>Another Friend in Need</a>      <!-- vue data binding -->
+                </div>
+
+                <div v-if='nowYouSeeMe'>    <!-- v-if manipulates dom -->
+                    <table>
+                        <tr><th>Book</th><th>Author</th><th></th></tr>
+                        <tr v-for='item in books' :class='{ fav: item.isFav }' @click='toggleFav(item)'>
+                            <td>
+                                <em>{{ item.title}}</em><br/>
+                                {{ item.subtitle }}
+                            </td>
+                            <td>
+                                {{ item.author }}
+                            </td>
+                            <td>
+                                <img :src='item.img' :alt='item.title'
+                                    height='80' width='60'/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <button @click='toggleShowBooks'>
+                        <span v-if='nowYouSeeMe'>Hide Books</span>
+                        <span v-else>Show Books</span>
+                    </button>
+                </div>
+            </section>
+            <hr/>
+        </main>
+
+        <footer>
+            <p>Hands off! This is mine, not Vue's ;)</p>
+        </footer>
+        <script src='./app.js'></script><!-- this is the vue app -->
+    </body>
+</html>
