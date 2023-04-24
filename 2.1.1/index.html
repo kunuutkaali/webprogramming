@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+        <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+        <style>
+        </style>
+        <title>Vue 3 Widgets</title>
+    </head>
+
+    <body>
+        <main id='app'>                  <!-- managed by vue app -->
+            <h1 id='title'>{{ pageTitle }}</h1>
+            <p>Expiration date: {{ experation }}</p>
+        </main>
+
+        <footer>
+            <p>Hands off! This is mine, not Vue's ;)</p>
+        </footer>
+        <script src='./app.js'></script><!-- this is the vue app -->
+    </body>
+</html>
